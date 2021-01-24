@@ -1,9 +1,10 @@
 ﻿using System;
+using HowLongApi.Dependencies;
 using HowLongApi.Models.Enums;
 
 namespace HowLongApi.Models
 {
-    public class Team
+    public class Team : BaseModel
     {
         public string Name { get; set; }
         public Sport Sport { get; set; }
