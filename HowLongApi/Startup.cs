@@ -1,4 +1,6 @@
+using HowLongApi.Infrastructure;
 using HowLongApi.Infrastructure.Data;
+using HowLongApi.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,9 @@ namespace HowLongApi
             services.AddDbContext<ApiContext>(options =>
             options.UseNpgsql(connectionString)
             );
+
+            services.AddScoped(typeof(IRepository<>), typeof(TeamRepository<>));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
